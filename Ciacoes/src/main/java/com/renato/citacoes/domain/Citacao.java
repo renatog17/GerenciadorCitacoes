@@ -9,6 +9,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Citacao implements Serializable{
@@ -18,7 +21,10 @@ public class Citacao implements Serializable{
 	private Integer id;
 	private String isbn;
 	private Date data;
+	@ManyToOne
+	@JoinColumn(name = "usuario_id")
 	private Usuario usuario;
+	@OneToMany(mappedBy = "citacao")
 	private List<Comentario> comentarios = new ArrayList<>();
 	
 	public Citacao() {

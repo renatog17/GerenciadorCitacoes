@@ -2,23 +2,37 @@ package com.renato.citacoes.domain;
 
 import java.io.Serializable;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+
+@Entity
 public class Comentario implements Serializable{
 	private static final long serialVersionUID = 1L;
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	private String conteudo;
-	private Usuario autor;
+	@ManyToOne
+	@JoinColumn(name = "usuario_id")
+	private Usuario usuario;
+	@ManyToOne
+	@JoinColumn(name = "citacao_id")
 	private Citacao citacao;
 	
 	public Comentario() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public Comentario(Integer id, String conteudo, Usuario autor, Citacao citacao) {
+	public Comentario(Integer id, String conteudo, Usuario usuario, Citacao citacao) {
 		super();
 		this.id = id;
 		this.conteudo = conteudo;
-		this.autor = autor;
+		this.usuario = usuario;
 		this.citacao = citacao;
 	}
 	public Integer getId() {
@@ -33,11 +47,11 @@ public class Comentario implements Serializable{
 	public void setConteudo(String conteudo) {
 		this.conteudo = conteudo;
 	}
-	public Usuario getAutor() {
-		return autor;
+	public Usuario getUsuario() {
+		return usuario;
 	}
-	public void setAutor(Usuario autor) {
-		this.autor = autor;
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
 	}
 	public Citacao getCitacao() {
 		return citacao;
