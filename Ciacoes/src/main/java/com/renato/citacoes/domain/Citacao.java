@@ -13,6 +13,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class Citacao implements Serializable{
 	private static final long serialVersionUID = 1L;
@@ -21,9 +23,11 @@ public class Citacao implements Serializable{
 	private Integer id;
 	private String isbn;
 	private Date data;
+	@JsonIgnore
 	@ManyToOne
 	@JoinColumn(name = "usuario_id")
 	private Usuario usuario;
+	@JsonIgnore
 	@OneToMany(mappedBy = "citacao")
 	private List<Comentario> comentarios = new ArrayList<>();
 	
