@@ -7,19 +7,19 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.renato.citacoes.domain.Usuario;
-import com.renato.citacoes.services.UsuarioService;
+import com.renato.citacoes.domain.Citacao;
+import com.renato.citacoes.services.CitacaoService;
 
 @RestController
-@RequestMapping(value = "/usuarios")
-public class UsuarioResource {
+@RequestMapping(value = "/citacoes")
+public class CitacaoResource {
 
 	@Autowired
-	UsuarioService usuarioService;
+	CitacaoService citacaoService;
 	
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
 	public ResponseEntity<?> find(@PathVariable Integer id){
-		Usuario usuario = usuarioService.findById(id);
-		return ResponseEntity.ok().body(usuario);
+		Citacao citacao = citacaoService.findById(id);
+		return ResponseEntity.ok().body(citacao);
 	}
 }

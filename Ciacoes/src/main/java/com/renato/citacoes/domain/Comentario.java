@@ -19,10 +19,10 @@ public class Comentario implements Serializable{
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	private String conteudo;
-	@JsonIgnore
 	@ManyToOne
 	@JoinColumn(name = "usuario_id")
 	private Usuario usuario;
+	@JsonIgnore
 	@ManyToOne
 	@JoinColumn(name = "citacao_id")
 	private Citacao citacao;
