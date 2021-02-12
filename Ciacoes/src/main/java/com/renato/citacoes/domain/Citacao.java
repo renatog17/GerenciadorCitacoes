@@ -20,6 +20,7 @@ public class Citacao implements Serializable{
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	private String isbn;
+	private String conteudo;
 	private Date data;
 	@ManyToOne
 	@JoinColumn(name = "usuario_id")
@@ -32,10 +33,11 @@ public class Citacao implements Serializable{
 		// TODO Auto-generated constructor stub
 	}
 	
-	public Citacao(Integer id, String isbn, Date data, Usuario usuario) {
+	public Citacao(Integer id, String isbn, String conteudo, Date data, Usuario usuario) {
 		super();
 		this.id = id;
 		this.isbn = isbn;
+		this.conteudo = conteudo;
 		this.data = data;
 		this.usuario = usuario;
 	}
@@ -62,6 +64,12 @@ public class Citacao implements Serializable{
 	}
 	public void setUsuario(Usuario usuario) {
 		this.usuario = usuario;
+	}
+	public String getConteudo() {
+		return conteudo;
+	}
+	public void setConteudo(String conteudo) {
+		this.conteudo = conteudo;
 	}
 	public List<Comentario> getComentarios() {
 		return comentarios;

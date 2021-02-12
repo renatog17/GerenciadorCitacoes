@@ -37,8 +37,8 @@ public class CitacoesApplication implements CommandLineRunner{
 		
 		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm");
 		
-		Citacao ci1 = new Citacao(null, "132", sdf.parse("30/09/2017 10:32"), u1);
-		Citacao ci2 = new Citacao(null, "144", sdf.parse("12/07/2021 11:52"), u2);
+		Citacao ci1 = new Citacao(null, "132", "os barcos são como as lanchas, as lanchas...",sdf.parse("30/09/2017 10:32"), u1);
+		Citacao ci2 = new Citacao(null, "144", "harry dos harry da inglaterra dos potter", sdf.parse("12/07/2021 11:52"), u2);
 		
 		Comentario co1 = new Comentario(null, "essa citacao é bem legal", u1, ci1);
 		Comentario co2 = new Comentario(null, "essa citacao é bem legal outra vez", u3, ci2);

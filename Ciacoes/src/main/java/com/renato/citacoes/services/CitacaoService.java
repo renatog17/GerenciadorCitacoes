@@ -1,9 +1,13 @@
 package com.renato.citacoes.services;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort.Direction;
 import org.springframework.stereotype.Service;
 
 import com.renato.citacoes.domain.Citacao;
@@ -40,5 +44,16 @@ public class CitacaoService {
 		}catch (DataIntegrityViolationException e) {
 			throw new DataIntegrityException("Não é possível deletar uma citação com comentários!");
 		}
+	}
+	
+	public List<Citacao> findAll(){
+		return citacaoRepository.findAll();
+	}
+	
+	public Page<Citacao> findPage(Integer page, Integer linesPerPage,
+			String orderBy, String direction) {
+		PageRequest pageRequest = PageRequest
+				.of(page, linesPerPage, Direction.valueOf(direction), orderBy);
+		return citacaoRepository.findAll(pageRequest);
 	}
 }
