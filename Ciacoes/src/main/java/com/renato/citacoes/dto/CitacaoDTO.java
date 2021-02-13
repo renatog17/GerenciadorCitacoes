@@ -2,12 +2,19 @@ package com.renato.citacoes.dto;
 
 import java.io.Serializable;
 
+import javax.validation.constraints.NotEmpty;
+
+import org.hibernate.validator.constraints.Length;
+
 import com.renato.citacoes.domain.Citacao;
+
 
 public class CitacaoDTO implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
 	private Integer id;
+	@NotEmpty(message = "preenchimento obrigatório")
+	@Length(min=20, message = "tamanho mínimo: 20 caracteres")
 	private String conteudo;
 	private String isbn;
 	
