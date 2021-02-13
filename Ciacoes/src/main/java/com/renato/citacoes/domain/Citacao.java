@@ -30,7 +30,6 @@ public class Citacao implements Serializable{
 	
 	public Citacao() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 	
 	public Citacao(Integer id, String isbn, String conteudo, Date data, Usuario usuario) {
