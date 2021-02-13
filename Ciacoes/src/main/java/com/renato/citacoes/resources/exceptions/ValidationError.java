@@ -5,7 +5,7 @@ import java.util.List;
 
 public class ValidationError extends StandarError {
 	private static final long serialVersionUID = 1L;
-
+//teste
 	private List<FieldMessage> errors = new ArrayList<>();
 	
 	public ValidationError(Integer status, String msg, Long timeStamp) {
