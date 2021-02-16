@@ -2,6 +2,7 @@ package com.renato.citacoes.dto;
 
 import java.io.Serializable;
 
+import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
 
 import org.hibernate.validator.constraints.Length;
@@ -15,6 +16,8 @@ public class UsuarioDTO implements Serializable{
 	@NotEmpty(message = "O campo não pode ser nulo")
 	@Length(min = 20, message = "Tamanho mínimo: 20 caracteres")
 	private String nome;
+	@NotEmpty(message = "O campo não pode ser nulo")
+	@Email(message = "Email inválido!")
 	private String email;
 	
 	public UsuarioDTO() {
